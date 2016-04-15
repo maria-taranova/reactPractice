@@ -60,18 +60,41 @@ p, ul {
 ul {
   padding-left: 30px;
 }
-div{border: solid grey}
+
 
 .box{
-    height: 320px;
-    width: 250px;  display: inline-block
+    padding-bottom: 16.6666%;
+    background-color: gainsboro;
+    margin: 10px
 }
 .box img{
-    max-width:100%;
-    max-height:100%;
+    width: auto;
+    height: 100%;
 }
 
 .newDiv{
-    color: white;  height: 78%;
-    width: 38%; position: absolute; overflow: hidden; 
-    background-color: blue; }
+    overflow: hidden;
+    width: 35vw;
+    height: 35vw;
+    background-color: wheat;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    left: 0;
+    right: 0;
+    left: 0;}
+
+#content{height: 100%; width: 100%}
+
+.ctrlBar{
+    position: absolute;
+    top: 0;
+    width: 100%
+}
+.float-right{
+    float: right;
+    color: cornflowerblue;
+    padding-right: 10px;
+    font-size: 21px;
+    cursor: pointer
+}

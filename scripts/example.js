@@ -144,7 +144,7 @@ ReactDOM.render(
   <CommentBox url="/api/comments" pollInterval={2000} />,
   document.getElementById('content')
 );*/
- var HelloWorld = React.createClass({
+/* var HelloWorld = React.createClass({
   render: function() {
     return (
       <p>
@@ -200,29 +200,20 @@ ReactDOM.render(
   document.getElementById('btn')
 );
 
-
+*/
 var Input = React.createClass({
-              getInitialState: function() {
-                  return {value: 'https://media-mediatemple.netdna-ssl.com/wp-content/uploads/2015/06/10-dithering-opt.jpg'};
-              },
-              handleChange: function(event) {
-                  this.setState({value: event.target.value});
-              },
+           
              createDiv: function(event){
                 console.log(this.props.index)
-                var newDiv = React.createElement(AbsoluteDiv, {style: {color: "red", backgroundColor: "green"}})
+                var newDiv = React.createElement(AbsoluteDiv, {id: this.props.index})
                  console.log(event.clientX, event.clientY);
                  ReactDOM.render(newDiv, document.getElementById(this.props.index));
              },
               render: function () {
-                  var value = this.state.value;
+                 
                   return (
-                          <div  className="box" id={this.props.id}>
-                              <input type="text" value={value} onChange={this.handleChange} />  <img src={value}></img>
-                            <ul>
-                                <li>http://www.image-mapper.com/photos/original/missing.png?1263880893</li> 
-                                <button onClick={this.createDiv}>Use this</button>
-                            </ul>
+                          <div  className="col-md-2 box" id={this.props.id} onClick={this.createDiv}>
+                         
                           </div>
                   );
               }
@@ -231,27 +222,33 @@ var Input = React.createClass({
 
 var AbsoluteDiv = React.createClass({
             closeBox: function(){
-                this.remove()
+                console.log(this);
             },
+       getInitialState: function() {
+                  return {value: 'https://media-mediatemple.netdna-ssl.com/wp-content/uploads/2015/06/10-dithering-opt.jpg'};
+              },
+              handleChange: function(event) {
+                  this.setState({value: event.target.value});
+              },
              render: function () {
                  //var pos = '0px';
+                     var value = this.state.value;
                   return (
-                        
-                          <div className="newDiv">
-                                <span onClick={this.closeBox}>X</span>
-                              Hello
+                     
+                     <div className="newDiv">
+                     <div className="ctrlBar"> <input type="text" value={value} onChange={this.handleChange} />
+                        <span  onClick={this.closeBox} className="float-right">X</span></div>
+                            <img src={value}></img>
+                     
+                             
+                            
                           </div>
                   );
               }
           });
 
 
-var divStyle = {
- 
-    height: '19%',
-    width: '19%',  display: 'inline-block'
- 
-};
+
 
 
 
@@ -271,8 +268,8 @@ var Boxes = React.createClass({
       "div",
       null,
       React.createElement(
-        "i",
-        { className: "boards" },
+        "div",
+        { className: "row" },
         boards
       )
     );
@@ -280,4 +277,4 @@ var Boxes = React.createClass({
 });
 
             //ReactDOM.render(<Input/>, document.getElementById('img'));
-ReactDOM.render(React.createElement(Boxes, { numBoards: 9 }), document.getElementById('img'));
+ReactDOM.render(React.createElement(Boxes, { numBoards: 9 }), document.body);
