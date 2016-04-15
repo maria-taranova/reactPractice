@@ -221,8 +221,10 @@ var Input = React.createClass({
 
 
 var AbsoluteDiv = React.createClass({
-            closeBox: function(){
-                console.log(this);
+            closeBox: function(e){
+                  //  e.target.parentNode.parentNode.style.display = 'none';
+                console.log(e.target.parentNode.parentNode); e.target.parentNode.parentNode.parentNode.removeChild(e.target.parentNode.parentNode);
+
             },
        getInitialState: function() {
                   return {value: 'https://media-mediatemple.netdna-ssl.com/wp-content/uploads/2015/06/10-dithering-opt.jpg'};
